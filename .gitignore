@@ -1,5 +1,8 @@
 apartment-client/node_modules/
 apartment-client/build/
 demo/target/
+java_server/target/
 *.mv.db
 *.trace.db
+chatBot/.env
+.env
