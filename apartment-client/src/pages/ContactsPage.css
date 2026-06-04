@@ -1,0 +1,123 @@
+.contacts-page { min-height: 100vh; background: #f0f6ff; direction: rtl; }
+
+.contacts-hero {
+    background: linear-gradient(135deg, #1a3a6b, #2563eb, #38bdf8);
+    padding: 50px 20px;
+    text-align: center;
+    color: white;
+}
+
+.contacts-hero h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+.contacts-hero p { opacity: 0.85; }
+
+.contacts-content {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.no-contacts {
+    text-align: center;
+    padding: 60px;
+    color: #94a3b8;
+    font-size: 1.1rem;
+    background: white;
+    border-radius: 16px;
+}
+
+.contacts-list { display: flex; flex-direction: column; gap: 16px; }
+
+.contact-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.08);
+    border: 1px solid #e0eaff;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.contact-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.contact-avatar {
+    width: 46px;
+    height: 46px;
+    background: linear-gradient(135deg, #2563eb, #38bdf8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.contact-name { font-weight: 700; color: #1a3a6b; font-size: 1rem; }
+.contact-date { font-size: 0.8rem; color: #94a3b8; margin-top: 2px; }
+
+.contact-agent-badge {
+    margin-right: auto;
+    background: #faf5ff;
+    color: #7c3aed;
+    border: 1px solid #ddd6fe;
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.contact-property {
+    background: #f0f6ff;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    color: #1a3a6b;
+    font-weight: 600;
+}
+
+.contact-message {
+    color: #475569;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    padding: 12px 14px;
+    background: #f8faff;
+    border-radius: 8px;
+    border-right: 3px solid #2563eb;
+}
+
+.contact-footer {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-top: 6px;
+    border-top: 1px solid #e0eaff;
+}
+
+.contact-action {
+    text-decoration: none;
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.contact-action.email {
+    background: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+}
+
+.contact-action.phone {
+    background: #ecfdf5;
+    color: #059669;
+    border: 1px solid #a7f3d0;
+}
+
+.contact-action:hover { opacity: 0.8; }

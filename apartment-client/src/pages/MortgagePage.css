@@ -1,0 +1,105 @@
+.mortgage-page { min-height: 100vh; background: #f0f6ff; direction: rtl; }
+
+.mortgage-hero {
+    background: linear-gradient(135deg, #1a3a6b, #2563eb, #38bdf8);
+    padding: 50px 20px;
+    text-align: center;
+    color: white;
+}
+
+.mortgage-hero h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+.mortgage-hero p { opacity: 0.85; }
+
+.mortgage-content {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.mortgage-card {
+    background: white;
+    border-radius: 20px;
+    padding: 36px;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.1);
+}
+
+.mortgage-form { display: flex; flex-direction: column; gap: 20px; }
+
+.m-group { display: flex; flex-direction: column; gap: 8px; }
+
+.m-group label { font-weight: 700; color: #1a3a6b; font-size: 0.95rem; }
+
+.m-group input[type="number"] {
+    padding: 12px 16px;
+    border: 2px solid #e0eaff;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #1a2a4a;
+    outline: none;
+    direction: rtl;
+}
+
+.m-group input[type="number"]:focus { border-color: #2563eb; }
+
+.m-group input[type="range"] {
+    width: 100%;
+    accent-color: #2563eb;
+    height: 6px;
+    cursor: pointer;
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: #94a3b8;
+}
+
+.m-btn {
+    background: linear-gradient(135deg, #2563eb, #38bdf8);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.m-btn:hover { opacity: 0.9; }
+
+.mortgage-results {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.1);
+}
+
+.result-main {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+.result-label { font-size: 0.9rem; color: #64748b; font-weight: 600; margin-bottom: 8px; }
+.result-value { font-size: 2.5rem; font-weight: 800; color: #2563eb; }
+
+.result-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+.result-item {
+    background: #f8faff;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    border: 1px solid #e0eaff;
+}
+
+.r-label { display: block; font-size: 0.78rem; color: #94a3b8; font-weight: 600; margin-bottom: 6px; }
+.r-value { font-size: 1.1rem; font-weight: 800; color: #1a3a6b; }
+.r-value.red { color: #dc2626; }

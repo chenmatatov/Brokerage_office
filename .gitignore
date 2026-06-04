@@ -1,0 +1,5 @@
+apartment-client/node_modules/
+apartment-client/build/
+demo/target/
+*.mv.db
+*.trace.db

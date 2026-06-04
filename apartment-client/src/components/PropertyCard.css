@@ -1,0 +1,186 @@
+.prop-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e0eaff;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    direction: rtl;
+}
+
+.prop-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(37, 99, 235, 0.18);
+}
+
+.prop-image-wrap {
+    position: relative;
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+}
+
+.prop-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.prop-card:hover .prop-image {
+    transform: scale(1.05);
+}
+
+.prop-no-image {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+}
+
+.prop-rooms-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #2563eb;
+    color: white;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.prop-image-count {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.55);
+    color: white;
+    border-radius: 8px;
+    padding: 3px 10px;
+    font-size: 0.78rem;
+}
+
+.prop-body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.prop-price {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #059669;
+}
+
+.prop-address {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #1a3a6b;
+}
+
+.prop-description {
+    font-size: 0.83rem;
+    color: #64748b;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.prop-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+    padding-top: 10px;
+    border-top: 1px solid #f0f6ff;
+}
+
+.prop-agent {
+    font-size: 0.82rem;
+    color: #94a3b8;
+}
+
+.prop-cta {
+    font-size: 0.85rem;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.fav-heart {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+    z-index: 2;
+}
+
+.fav-heart:hover { transform: scale(1.2); }
+
+.admin-btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 10px 14px;
+    border-top: 1px solid #e0eaff;
+    background: #f8faff;
+    border-radius: 0 0 16px 16px;
+}
+
+.edit-prop-btn {
+    background: #eff6ff;
+    color: #2563eb;
+    border: 1.5px solid #bfdbfe;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.edit-prop-btn:hover {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+    transform: scale(1.1);
+}
+
+.delete-prop-btn {
+    background: #fff0f0;
+    color: #dc2626;
+    border: 1.5px solid #fecaca;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.delete-prop-btn:hover {
+    background: #dc2626;
+    color: white;
+    border-color: #dc2626;
+    transform: scale(1.1);
+}

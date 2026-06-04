@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- גג -->
+  <polygon points="50,8 92,42 8,42" fill="#2563eb"/>
+  <!-- גוף הבית -->
+  <rect x="14" y="42" width="72" height="48" fill="#1a3a6b"/>
+  <!-- דלת -->
+  <rect x="40" y="62" width="20" height="28" rx="2" fill="#38bdf8"/>
+  <circle cx="57" cy="77" r="2" fill="white"/>
+  <!-- חלון שמאל -->
+  <rect x="18" y="52" width="16" height="14" rx="2" fill="#38bdf8" opacity="0.85"/>
+  <line x1="26" y1="52" x2="26" y2="66" stroke="white" strokeWidth="1.5"/>
+  <line x1="18" y1="59" x2="34" y2="59" stroke="white" strokeWidth="1.5"/>
+  <!-- חלון ימין -->
+  <rect x="66" y="52" width="16" height="14" rx="2" fill="#38bdf8" opacity="0.85"/>
+  <line x1="74" y1="52" x2="74" y2="66" stroke="white" strokeWidth="1.5"/>
+  <line x1="66" y1="59" x2="82" y2="59" stroke="white" strokeWidth="1.5"/>
+  <!-- ארובה -->
+  <rect x="68" y="16" width="8" height="16" rx="1" fill="#1a3a6b"/>
+</svg>

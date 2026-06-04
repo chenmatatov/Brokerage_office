@@ -1,0 +1,220 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 25, 60, 0.75);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-container {
+    background: white;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 950px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(37, 99, 235, 0.25);
+    direction: rtl;
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: #f1f5f9;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    color: #1a3a6b;
+    transition: background 0.2s;
+}
+
+.modal-close:hover { background: #dbeafe; }
+
+.modal-content {
+    display: flex;
+}
+
+.modal-left {
+    width: 50%;
+    flex-shrink: 0;
+}
+
+.modal-main-image {
+    width: 100%;
+    height: 300px;
+    border-radius: 20px 0 0 0;
+    overflow: hidden;
+}
+
+.modal-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.modal-main-image img:hover { transform: scale(1.03); }
+
+.modal-no-image {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+
+.modal-thumbnails {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    background: #f8faff;
+    overflow-x: auto;
+}
+
+.modal-thumb {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: border-color 0.2s;
+    flex-shrink: 0;
+}
+
+.modal-thumb.active { border-color: #2563eb; }
+
+.modal-right {
+    flex: 1;
+    padding: 28px 28px 28px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+.modal-address {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a3a6b;
+    line-height: 1.4;
+}
+
+.modal-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.modal-tag {
+    background: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.modal-tag.price {
+    background: #ecfdf5;
+    color: #059669;
+    border-color: #a7f3d0;
+    font-size: 0.95rem;
+}
+
+.modal-tag.agent {
+    background: #faf5ff;
+    color: #7c3aed;
+    border-color: #ddd6fe;
+}
+
+.modal-divider {
+    height: 1px;
+    background: #e0eaff;
+}
+
+.modal-desc {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.7;
+}
+
+/* CONTACT FORM */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a3a6b;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px 14px;
+    border: 2px solid #e0eaff;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    color: #1a2a4a;
+    background: #f8faff;
+    outline: none;
+    transition: border-color 0.2s;
+    direction: rtl;
+    font-family: inherit;
+    resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #2563eb;
+    background: white;
+}
+
+.contact-btn {
+    background: linear-gradient(135deg, #2563eb, #38bdf8);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 11px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.contact-btn:hover { opacity: 0.9; }
+.contact-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.contact-success {
+    background: #ecfdf5;
+    color: #059669;
+    border: 1px solid #a7f3d0;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: center;
+}

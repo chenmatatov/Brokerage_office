@@ -1,0 +1,38 @@
+.map-page { min-height: 100vh; background: #f0f6ff; direction: rtl; }
+
+.map-header {
+    background: linear-gradient(135deg, #1a3a6b, #2563eb);
+    padding: 30px 40px;
+    color: white;
+}
+
+.map-header h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 6px; }
+.map-header p { opacity: 0.85; }
+
+.map-container { height: calc(100vh - 130px); width: 100%; }
+
+.map-popup { min-width: 200px; }
+
+.popup-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.popup-address { font-weight: 700; font-size: 0.9rem; color: #1a3a6b; margin-bottom: 4px; }
+.popup-price { font-size: 1rem; font-weight: 800; color: #059669; margin-bottom: 2px; }
+.popup-rooms { font-size: 0.82rem; color: #64748b; margin-bottom: 10px; }
+
+.popup-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+}
