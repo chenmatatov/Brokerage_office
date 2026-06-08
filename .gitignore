@@ -6,3 +6,5 @@ java_server/target/
 *.trace.db
 chatBot/.env
 .env
+__pycache__/
+*.pyc
