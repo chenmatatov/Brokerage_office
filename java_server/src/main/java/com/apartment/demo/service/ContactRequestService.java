@@ -7,6 +7,7 @@ import com.apartment.demo.entities.Property;
 import com.apartment.demo.repository.ContactRequestRepository;
 import com.apartment.demo.repository.PropertyRepository;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,16 +18,12 @@ public class ContactRequestService {
 
     private final ContactRequestRepository contactRequestRepository;
     private final PropertyRepository propertyRepository;
+    private final ModelMapper modelMapper;
 
     public void save(ContactRequestInput input) {
         Property property = propertyRepository.findById(input.getPropertyId())
                 .orElseThrow(() -> new PropertyException(" - Property not found: " + input.getPropertyId()));
-
-        ContactRequest req = new ContactRequest();
-        req.setSenderName(input.getSenderName());
-        req.setSenderEmail(input.getSenderEmail());
-        req.setSenderPhone(input.getSenderPhone());
-        req.setMessage(input.getMessage());
+        ContactRequest req = modelMapper.map(input, ContactRequest.class);
         req.setProperty(property);
         req.setAgent(property.getAgent());
         contactRequestRepository.save(req);
@@ -43,13 +40,7 @@ public class ContactRequestService {
     }
 
     private ContactRequestDTO toDTO(ContactRequest r) {
-        ContactRequestDTO dto = new ContactRequestDTO();
-        dto.setId(r.getId());
-        dto.setSenderName(r.getSenderName());
-        dto.setSenderEmail(r.getSenderEmail());
-        dto.setSenderPhone(r.getSenderPhone());
-        dto.setMessage(r.getMessage());
-        dto.setCreatedAt(r.getCreatedAt());
+        ContactRequestDTO dto = modelMapper.map(r, ContactRequestDTO.class);
         if (r.getProperty() != null) {
             dto.setPropertyId(r.getProperty().getId());
             dto.setPropertyAddress(r.getProperty().getAddress());

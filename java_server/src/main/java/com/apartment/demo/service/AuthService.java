@@ -27,8 +27,9 @@ public class AuthService {
 
         User user = new User();
         user.setEmail(req.getEmail());
+        user.setName(req.getName());
         user.setPassword(passwordEncoder.encode(req.getPassword()));
-        user.setRole(User.Role.valueOf(req.getRole().toUpperCase()));
+        user.setRole(User.Role.valueOf(req.getRole().toUpperCase(java.util.Locale.ROOT)));
 
         if (req.getAgentId() != null) {
             Agent agent = agentRepository.findById(req.getAgentId())
@@ -39,7 +40,7 @@ public class AuthService {
         userRepository.save(user);
         Long agentId = user.getAgent() != null ? user.getAgent().getId() : null;
         String token = jwtUtil.generateToken(user.getEmail(), user.getRole().name(), agentId);
-        return new AuthResponse(token, user.getRole().name(), user.getEmail(), agentId);
+        return new AuthResponse(token, user.getRole().name(), user.getEmail(), user.getName(), agentId);
     }
 
     public AuthResponse login(LoginRequest req) {
@@ -51,6 +52,6 @@ public class AuthService {
 
         Long agentId = user.getAgent() != null ? user.getAgent().getId() : null;
         String token = jwtUtil.generateToken(user.getEmail(), user.getRole().name(), agentId);
-        return new AuthResponse(token, user.getRole().name(), user.getEmail(), agentId);
+        return new AuthResponse(token, user.getRole().name(), user.getEmail(), user.getName(), agentId);
     }
 }

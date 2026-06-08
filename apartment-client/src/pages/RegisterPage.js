@@ -4,7 +4,7 @@ import { register } from '../api/authApi';
 import './Auth.css';
 
 function RegisterPage() {
-    const [form, setForm] = useState({ email: '', password: '', role: 'USER', agentId: '' });
+    const [form, setForm] = useState({ email: '', password: '', name: '', role: 'USER', agentId: '' });
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
@@ -15,6 +15,7 @@ function RegisterPage() {
             const payload = {
                 email: form.email,
                 password: form.password,
+                name: form.name,
                 role: form.role,
                 agentId: form.role === 'AGENT' && form.agentId ? Number(form.agentId) : null
             };
@@ -22,6 +23,7 @@ function RegisterPage() {
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('role', res.data.role);
             localStorage.setItem('email', res.data.email);
+            localStorage.setItem('name', res.data.name);
             localStorage.setItem('agentId', res.data.agentId);
             navigate('/');
         } catch (err) {
@@ -38,6 +40,17 @@ function RegisterPage() {
 
                 <form className="auth-form" onSubmit={handleSubmit}>
                     {error && <div className="auth-error">{error}</div>}
+
+                    <div className="form-group">
+                        <label>שם מלא</label>
+                        <input
+                            type="text"
+                            placeholder="ישראל ישראלי"
+                            value={form.name}
+                            onChange={e => setForm({ ...form, name: e.target.value })}
+                            required
+                        />
+                    </div>
 
                     <div className="form-group">
                         <label>אימייל</label>

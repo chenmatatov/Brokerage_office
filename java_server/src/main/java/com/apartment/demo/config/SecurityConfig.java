@@ -34,6 +34,7 @@ public class SecurityConfig {
                 .requestMatchers("/agents/getAll", "/agents/getStats/**", "/properties/**").permitAll()
                 .requestMatchers("/contact/send").permitAll()
                 .requestMatchers("/contact/agent/**", "/contact/all").authenticated()
+                .requestMatchers("/notes/**").authenticated()
                 .anyRequest().authenticated()
             )
             .headers(h -> h.frameOptions(f -> f.disable()))

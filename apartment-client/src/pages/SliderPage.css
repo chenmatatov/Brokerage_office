@@ -136,9 +136,37 @@
     margin-top: 8px;
 }
 
-.slider-btn:hover {
-    opacity: 0.9;
-    transform: translateX(-4px);
+.slider-img-counter {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0,0,0,0.55);
+    color: white;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.slider-img-dots {
+    display: flex;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.img-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.img-dot.active {
+    background: #38bdf8;
+    width: 20px;
+    border-radius: 4px;
 }
 
 .slider-dots {

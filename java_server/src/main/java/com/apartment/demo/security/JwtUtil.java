@@ -4,12 +4,16 @@ import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Component;
 import java.security.Key;
+import java.util.Base64;
 import java.util.Date;
+import io.jsonwebtoken.JwtException;
 
 @Component
 public class JwtUtil {
 
-    private final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    private final Key key = Keys.hmacShaKeyFor(
+        Base64.getDecoder().decode("dGhpcyBpcyBhIHNlY3JldCBrZXkgZm9yIGp3dCB0b2tlbiBzaWduaW5n")
+    );
     private final long EXPIRATION = 1000 * 60 * 60 * 24; // 24 שעות
 
     public String generateToken(String email, String role, Long agentId) {
@@ -36,7 +40,7 @@ public class JwtUtil {
         try {
             extractClaims(token);
             return true;
-        } catch (Exception e) {
+        } catch (JwtException e) {
             return false;
         }
     }

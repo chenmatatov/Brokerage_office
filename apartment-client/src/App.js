@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes, Route, Link, Navigate, useNavigate } from 'react-router-dom';
 import RealEstateLogo from './RealEstateLogo';
+import ChatBot from './components/ChatBot';
 import PropertiesPage from './pages/PropertiesPage';
 import SliderPage from './pages/SliderPage';
 import StatsPage from './pages/StatsPage';
 import MapPage from './pages/MapPage';
 import MortgagePage from './pages/MortgagePage';
 import ContactsPage from './pages/ContactsPage';
+import DiaryPage from './pages/DiaryPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import './App.css';
@@ -13,7 +15,8 @@ import './App.css';
 function Navbar() {
     const navigate = useNavigate();
     const role = localStorage.getItem('role');
-    const email = localStorage.getItem('email');
+    const raw = localStorage.getItem('name');
+    const name = (raw && raw !== 'null') ? raw : localStorage.getItem('email');
 
     const logout = () => { localStorage.clear(); navigate('/login'); };
 
@@ -34,9 +37,12 @@ function Navbar() {
                 {(role === 'ADMIN' || role === 'AGENT') && (
                     <Link to="/contacts">📬 פניות</Link>
                 )}
+                {(role === 'ADMIN' || role === 'AGENT') && (
+                    <Link to="/diary">📓 יומן</Link>
+                )}
             </div>
             <div className="navbar-user-area">
-                <span className="navbar-user">👤 {email}</span>
+                <span className="navbar-user">👤 {name}</span>
                 <button className="navbar-logout" onClick={logout}>התנתק</button>
             </div>
         </nav>
@@ -51,6 +57,7 @@ function App() {
     return (
         <BrowserRouter>
             <Navbar />
+            <ChatBot />
             <Routes>
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
@@ -60,6 +67,7 @@ function App() {
                 <Route path="/stats" element={<PrivateRoute><StatsPage /></PrivateRoute>} />
                 <Route path="/mortgage" element={<PrivateRoute><MortgagePage /></PrivateRoute>} />
                 <Route path="/contacts" element={<PrivateRoute><ContactsPage /></PrivateRoute>} />
+                <Route path="/diary" element={<PrivateRoute><DiaryPage /></PrivateRoute>} />
             </Routes>
         </BrowserRouter>
     );

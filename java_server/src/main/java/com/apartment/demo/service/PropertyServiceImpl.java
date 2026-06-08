@@ -4,6 +4,7 @@ import com.apartment.demo.dto.PropertyDTO;
 import com.apartment.demo.entities.Agent;
 import com.apartment.demo.entities.Property;
 import com.apartment.demo.repository.AgentRepository;
+import com.apartment.demo.repository.ContactRequestRepository;
 import com.apartment.demo.repository.PropertyRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -20,6 +21,7 @@ public class PropertyServiceImpl implements PropertyService {
     private final PropertyRepository propertyRepository;
     private final AgentRepository agentRepository;
     private final ModelMapper mapper;
+    private final ContactRequestRepository contactRequestRepository;
 
     private PropertyDTO toDTO(Property property) {
         PropertyDTO dto = mapper.map(property, PropertyDTO.class);
@@ -61,15 +63,25 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public void update(PropertyDTO dto) {
-        if (!propertyRepository.existsById(dto.getId()))
-            throw new PropertyException(" - Property does not exist!");
-        propertyRepository.save(mapper.map(dto, Property.class));
+        Property existing = propertyRepository.findById(dto.getId())
+                .orElseThrow(() -> new PropertyException(" - Property does not exist!"));
+        existing.setAddress(dto.getAddress());
+        existing.setPrice(dto.getPrice());
+        existing.setRooms(dto.getRooms());
+        existing.setDescription(dto.getDescription());
+        if (dto.getAgentId() != null) {
+            Agent agent = agentRepository.findById(dto.getAgentId())
+                    .orElseThrow(() -> new PropertyException(" - Agent not found: " + dto.getAgentId()));
+            existing.setAgent(agent);
+        }
+        propertyRepository.save(existing);
     }
 
     @Override
     public void delete(Long id) {
         if (!propertyRepository.existsById(id))
             throw new PropertyException(" - Property not found: " + id);
+        contactRequestRepository.deleteByPropertyId(id);
         propertyRepository.deleteById(id);
     }
 
